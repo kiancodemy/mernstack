@@ -1,21 +1,26 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand href="/">proshop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
           <Navbar.Collapse id="basis-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="/cart">
-                <FaShoppingCart /> cart
-              </Nav.Link>
-              <Nav.Link href="/login">
-                <FaShoppingCart />
-                <FaUser /> sign in
-              </Nav.Link>
+              <LinkContainer to="/cart">
+                <Nav.Link>
+                  <FaShoppingCart /> cart
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/login">
+                <Nav.Link>
+                  <FaUser /> sign in
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
