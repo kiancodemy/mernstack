@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Container } from "react-bootstrap";
 import Homescreen from "./screen/Homescreen";
+import Productscreen from "./screen/productscreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                 </Container>
               }
             ></Route>
+            <Route path="/product/:id" element={<Productscreen />}></Route>
           </Routes>
         </main>
         <Footer></Footer>
