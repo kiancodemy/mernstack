@@ -11,22 +11,38 @@ import {
 import Rating from "../components/Rating";
 import { Link } from "react-router-dom";
 import products from "../Products";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 function Productscreen() {
   const { id } = useParams();
-  const product = products.find((item) => item._id === id);
-  console.log(product);
+  const [product, setitem] = useState({});
+
+  useEffect(() => {
+    const getbyid = async () => {
+      const { data } = await axios.get(`/api/products/${id}`);
+
+      setitem(data);
+    };
+    getbyid();
+  }, [id]);
 
   return (
-    <>
+    <div style={{ padding: "0 10px" }}>
       <Link to="/" className="btn btn-light my-3">
         Go back
       </Link>
       <Row>
         <Col md={5}>
-          <Image src={product.image} alt={product.image} fluid></Image>
+          <Image
+            style={{ borderRadius: "10px" }}
+            src={product.image}
+            alt={product.image}
+            fluid
+          ></Image>
         </Col>
         <Col md={4}>
-          <ListGroup variant="flusjh">
+          <ListGroup variant="flush">
             <ListGroupItem>
               <h3>{product.name}</h3>
             </ListGroupItem>
@@ -69,14 +85,14 @@ function Productscreen() {
                   type="button"
                   disabled={product.countInStock === 0}
                 >
-                  Add to cart
+                  <span>Add to cart</span>
                 </Button>
               </ListGroupItem>
             </ListGroup>
           </Card>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }
 
