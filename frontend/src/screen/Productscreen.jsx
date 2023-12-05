@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import { Link } from "react-router-dom";
-import products from "../Products";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
