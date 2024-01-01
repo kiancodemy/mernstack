@@ -6,10 +6,8 @@ import Product from "./modal/Productmodal.js";
 import Order from "./modal/orderModel.js";
 import connect from "./config/db.js";
 dotenv.config();
-console.log(1111);
 
 connect();
-console.log(2222);
 
 const importdata = async () => {
   try {
@@ -42,8 +40,8 @@ const destroydata = async () => {
     process.exit(1);
   }
 };
-/*if (process.argv[2] === "-d") {
+if (process.argv[2] === "-d") {
   destroydata();
 } else {
   importdata();
-}*/
+}
