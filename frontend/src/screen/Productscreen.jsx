@@ -52,6 +52,9 @@ function Productscreen() {
                 text={`${product.numReviews} review`}
               ></Rating>
             </ListGroupItem>
+            <ListGroupItem>
+              <p>{product.description}</p>
+            </ListGroupItem>
           </ListGroup>
         </Col>
         <Col md={3}>
